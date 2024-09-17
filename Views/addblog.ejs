@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Blog Post</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 600px;
+        }
+        .div{
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            height: 100vh;
+        }
+        h1 {
+            margin-top: 0;
+        }
+        input[type="text"],
+        input[type="url"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 10px 0;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .nav {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <%- include("nav") %>
+    <div class="div">
+        <div class="container">
+            <h1>Add a New Blog Post</h1>
+            <form action="/blog/addblog" method="post">
+                <input type="text" name="title" placeholder="Enter title" required>
+                <input type="url" name="img" placeholder="Enter image URL" style="display: block; margin: 10px 0;" required>
+                <textarea name="content" placeholder="Enter content" rows="5" style="display: block; margin: 10px 0;" required></textarea>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

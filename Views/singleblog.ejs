@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Post</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        #blog {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        #blog img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        #title {
+            font-size: 2rem;
+            margin-top: 20px;
+            color: #333;
+        }
+
+        #content {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin: 20px 0;
+            color: #555;
+        }
+
+        #createdAt {
+            color: #888;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        a, form button {
+            background-color: #3498db;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+        }
+
+        a:hover, form button:hover {
+            background-color: #2980b9;
+        }
+
+        form {
+            display: inline;
+        }
+    </style>
+</head>
+<body>
+    <%- include("nav") %>
+
+    <div id="blog">
+        <img src="<%= data.img %>" alt="<%= data.title %>" id="img">
+        <h3 id="title"><%= data.title %></h3>
+        <p id="content"><%= data.content %></p>
+        <p id="createdAt"><%= data.createdAt.toLocaleDateString() %></p>
+        <a href="/blog/<%= data._id%>/edit">Edit</a>
+        <form action="/blog/<%= data._id %>?_method=DELETE" method="post"><button>Delete</button></form>
+    </div>
+</body>
+</html>
